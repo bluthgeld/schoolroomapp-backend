@@ -1,0 +1,2 @@
+class StudentCarer < ApplicationRecord
+end

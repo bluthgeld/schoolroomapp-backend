@@ -1,0 +1,2 @@
+class StudentRoom < ApplicationRecord
+end

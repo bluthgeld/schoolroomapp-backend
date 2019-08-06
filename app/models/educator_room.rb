@@ -1,0 +1,2 @@
+class EducatorRoom < ApplicationRecord
+end
