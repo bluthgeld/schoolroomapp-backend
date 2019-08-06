@@ -21,11 +21,18 @@ ActiveRecord::Schema.define(version: 2019_08_06_185342) do
   end
 
   create_table "conversations", force: :cascade do |t|
+    t.integer "initiator_id"
+    t.integer "receiver_id"
+    t.string "subject"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "educator_rooms", force: :cascade do |t|
+    t.integer "educator_id"
+    t.integer "room_id"
+    t.string "hours"
+    t.string "school_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,26 +43,47 @@ ActiveRecord::Schema.define(version: 2019_08_06_185342) do
   end
 
   create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.integer "converation"
+    t.integer "sender"
+    t.boolean "read", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "rooms", force: :cascade do |t|
+    t.string "room_number"
+    t.string "name"
+    t.integer "room_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "student_carers", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "carer_id"
+    t.integer "fam"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "student_rooms", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "room_id"
+    t.string "hours"
+    t.string "school_year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "students", force: :cascade do |t|
+    t.string "student_number"
+    t.string "first_name"
+    t.string "last_name"
+    t.date "dob"
+    t.string "nickname"
+    t.string "picture"
+    t.date "start_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,7 +98,6 @@ ActiveRecord::Schema.define(version: 2019_08_06_185342) do
     t.string "email"
     t.string "picture"
     t.integer "educator_type"
-    t.integer "carer_type"
     t.integer "comm_pref"
     t.boolean "admin"
     t.datetime "created_at", null: false

@@ -10,7 +10,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :picture
       t.integer :educator_type
-      t.integer :carer_type
       t.integer :comm_pref
       t.boolean :admin
       t.timestamps
