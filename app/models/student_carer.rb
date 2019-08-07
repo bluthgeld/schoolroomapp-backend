@@ -4,7 +4,7 @@ class StudentCarer < ApplicationRecord
 
   after_initialize do
     if self.new_record?
-      self.carer_type ||= :parnt
+      self.fam ||= :parnt
     end
   end
 end
