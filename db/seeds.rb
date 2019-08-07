@@ -37,3 +37,10 @@ studentroom1= StudentRoom.find_or_create_by(student_id: student1.id, room_id: ro
 studentroom2= StudentRoom.find_or_create_by(student_id: student2.id, room_id: room1.id, hours: "8 to 6", school_year: "2019")
 studentroom3= StudentRoom.find_or_create_by(student_id: student3.id, room_id: room1.id, hours: "8 to 6", school_year: "2019")
 studentroom4= StudentRoom.find_or_create_by(student_id: student4.id, room_id: room1.id, hours: "8 to 6", school_year: "2019")
+
+
+conversation1 = Conversation.find_or_create_by(initiator_id: educator1.id, receiver_id: carer1.id, subject: "This is a Test")
+
+message1 = Message.find_or_create_by(conversation_id: conversation1.id, sender_id: educator1.id, body: "Hello, Welcome to the School")
+message2 = Message.find_or_create_by(conversation_id: conversation1.id, sender_id: carer1.id, body: "Thank you!")
+message3 = Message.find_or_create_by(conversation_id: conversation1.id, sender_id: educator1.id, body: "You are Most Welcome!")
