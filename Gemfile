@@ -31,7 +31,7 @@ gem 'rack-cors'
 # twilio for text messaging
 gem 'twilio-ruby'
 
-gem 'figaro'
+# gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

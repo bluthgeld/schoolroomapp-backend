@@ -42,8 +42,8 @@ Rails.application.configure do
     port: 26,
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: "XXXXXX",
-    password: "XXXXXXX",
+    user_name: Rails.application.credentials.schoolroom[:email_user_name],
+    password: Rails.application.credentials.schoolroom[:email_password],
     domain: "mail.schoolroom.app",
     openssl_verify_mode: "none",
   }
