@@ -35,7 +35,7 @@ class CarersController < ApplicationController
                 :only => [:fam],
                 :include => {
                   :carer => {
-                    :only => [:first_name, :last_name, :email, :phone, :picture]
+                    :only => [:id, :first_name, :last_name, :email, :phone, :picture]
                   }
                 }
               }
