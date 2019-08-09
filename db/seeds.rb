@@ -8,6 +8,7 @@
 Carer.destroy_all
 Educator.destroy_all
 Room.destroy_all
+StudentCarer.destroy_all
 
 carer1 = Carer.create(username: "superparent", password: "password1", first_name: "Robert", last_name: "Pancake", phone: "2405551212", email: "rob@thegreatepancake.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg")
 carer2 = Carer.create(username: "thegreatestparent", password: "password2", first_name: "Melissa", last_name: "Pancake", phone: "2405552222", email: "melissa@thegreatepancake.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg")
