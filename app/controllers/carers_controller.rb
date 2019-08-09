@@ -18,6 +18,19 @@ class CarersController < ApplicationController
           :students => {
             :except => [:created_at, :updated_at],
             :include => {
+              :student_rooms => {
+                :except => [:id, :student_id, :created_at, :updated_at],
+                :include => {
+                  :room => {
+                    :except => [:created_at, :updated_at],
+                    :include => {
+                        :educators => {
+                          :only => [:first_name, :last_name, :picture, :educator_type]
+                        }
+                    }
+                  }
+                }
+              },
               :student_carers => {
                 :only => [:fam],
                 :include => {
