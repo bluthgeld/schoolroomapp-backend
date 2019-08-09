@@ -1,5 +1,8 @@
 class StudentCarer < ApplicationRecord
 
+  belongs_to :student
+  belongs_to :carer
+
   enum fam: [:parnt, :nanny, :elder, :sibling]
 
   after_initialize do
