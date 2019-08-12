@@ -42,8 +42,8 @@ studentroom3= StudentRoom.find_or_create_by(student_id: student3.id, room_id: ro
 studentroom4= StudentRoom.find_or_create_by(student_id: student4.id, room_id: room1.id, hours: "8 to 6", school_year: "2019")
 
 
-conversation1 = Conversation.find_or_create_by(initiator_id: educator1.id, receiver_id: carer1.id, subject: "This is a Test")
+announcement1 = Announcement.find_or_create_by(initiator_id: educator1.id, receiver_id: carer1.id, subject: "This is a Test", body: "this is a much longer body.  Later I will add room for attachements and other pieces of info.  Eventually, I will add a text editor so we can accept formatting")
 
-message1 = Message.find_or_create_by(conversation_id: conversation1.id, sender_id: educator1.id, body: "Hello, Welcome to the School")
-message2 = Message.find_or_create_by(conversation_id: conversation1.id, sender_id: carer1.id, body: "Thank you!")
-message3 = Message.find_or_create_by(conversation_id: conversation1.id, sender_id: educator1.id, body: "You are Most Welcome!")
+message1 = Message.find_or_create_by(announcement_id: announcement1.id, sender_id: educator1.id, body: "Hello, Welcome to the School")
+message2 = Message.find_or_create_by(announcement_id: announcement1.id, sender_id: carer1.id, body: "Thank you!")
+message3 = Message.find_or_create_by(announcement_id: announcement1.id, sender_id: educator1.id, body: "You are Most Welcome!")

@@ -6,7 +6,7 @@ class AnnouncementsController < ApplicationController
       :except => [:created_at, :updated_at],
       :include => {
         :messages => {
-          :except => [:created_at, :updated_at]
+          :only => [:id, :read]
         }
       }
     )
@@ -15,12 +15,17 @@ class AnnouncementsController < ApplicationController
   def show
     announcement = Announcement.find_by(id: params[:id])
 
-    render json: announcements.to_json(
+    render json: announcement.to_json(
       :include => {
-        :messages
+        :messages => {
+          :include => {
+            :sender => {
+              :only => [:id, :username, :first_name, :last_name, :picture]
+            }
+          }
+        }
       }
     )
+
   end
-
-
 end
