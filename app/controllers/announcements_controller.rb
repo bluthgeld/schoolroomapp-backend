@@ -3,8 +3,11 @@ class AnnouncementsController < ApplicationController
   def index
     announcements = Announcement.all
     render json: announcements.to_json(
-      :except => [:created_at, :updated_at],
+      :except => [:updated_at],
       :include => {
+        :initiator => {
+          :only => [:first_name, :last_name]
+        },
         :messages => {
           :only => [:id, :read]
         }
@@ -17,6 +20,9 @@ class AnnouncementsController < ApplicationController
 
     render json: announcement.to_json(
       :include => {
+        :initiator => {
+          :only => [:id, :username, :first_name, :last_name, :picture]
+        },
         :messages => {
           :include => {
             :sender => {
