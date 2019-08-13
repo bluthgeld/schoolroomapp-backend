@@ -1,5 +1,6 @@
 class Carer < User
 
+
   has_many :student_carers
   has_many :students, through: :student_carers
 

@@ -46,4 +46,15 @@ class CarersController < ApplicationController
 
   end
 
+  def create
+    byebug
+    new_carer = Carer.create!(carer_params)
+    render json: new_carer
+
+  end
+
+  private
+    def carer_params
+      params.require(:carer).permit(:username, :password, :first_name, :last_name, :phone, :email, :picture)
+    end
 end
