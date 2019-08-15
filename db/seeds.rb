@@ -33,8 +33,8 @@ studentcarer3 = StudentCarer.find_or_create_by(student_id: student1.id, carer_id
 
 room1 = Room.find_or_create_by(room_number: "101", name: "Maple", room_type: 0)
 
-educatorroom1 = EducatorRoom.find_or_create_by(educator_id: educator1.id, room_id: room1.id, hours: "8 to 6")
-educatorroom2 = EducatorRoom.find_or_create_by(educator_id: educator2.id, room_id: room1.id, hours: "8 to 6")
+educatorroom1 = EducatorRoom.find_or_create_by(educator_id: educator1.id, room_id: room1.id, hours: "8 to 6", school_year: "2019")
+educatorroom2 = EducatorRoom.find_or_create_by(educator_id: educator2.id, room_id: room1.id, hours: "8 to 6" school_year: "2019")
 
 studentroom1= StudentRoom.find_or_create_by(student_id: student1.id, room_id: room1.id, hours: "8 to 6", school_year: "2019")
 studentroom2= StudentRoom.find_or_create_by(student_id: student2.id, room_id: room1.id, hours: "8 to 6", school_year: "2019")

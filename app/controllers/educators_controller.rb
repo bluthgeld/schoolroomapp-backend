@@ -13,10 +13,33 @@ class EducatorsController < ApplicationController
     educator = Educator.find_by(id: params[:id])
 
     render json: educator.to_json(
-      :except => [:created_at, :updated_at, :comm_pref]
-
+      :except => [:created_at, :updated_at],
+      :include => {
+        :educator_rooms => {
+          :except => [:created_at, :updated_at],
+          :include => {
+            :room => {
+              :include => {
+                :educators => {}
+              }
+            }
+          }
+        }
+      }
     )
+  end
+
+
+  def create
+
+    new_educator = Educator.create!(educator_params)
+    render json: new_educator
 
   end
+
+  private
+    def educator_params
+      params.require(:educator).permit(:username, :password, :first_name, :last_name, :phone, :email, :picture, :educator_type)
+    end
 
 end
