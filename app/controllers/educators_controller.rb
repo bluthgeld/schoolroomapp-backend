@@ -19,8 +19,11 @@ class EducatorsController < ApplicationController
           :except => [:created_at, :updated_at],
           :include => {
             :room => {
+              :except => [:created_at, :updated_at],
               :include => {
-                :educators => {}
+                :educators => {
+                  :except => [:created_at, :updated_at]
+                }
               }
             }
           }
