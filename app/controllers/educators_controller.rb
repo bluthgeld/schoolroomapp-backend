@@ -40,6 +40,14 @@ class EducatorsController < ApplicationController
 
   end
 
+  def update
+
+    update_educator = Educator.find_by(id: params[:id])
+    update_educator.update(educator_params)
+    render json: update_educator
+    
+  end
+
   private
     def educator_params
       params.require(:educator).permit(:username, :password, :first_name, :last_name, :phone, :email, :picture, :educator_type)

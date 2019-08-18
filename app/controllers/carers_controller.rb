@@ -53,6 +53,16 @@ class CarersController < ApplicationController
 
   end
 
+
+  def update
+
+    update_carer = Carer.find_by(id: params[:id])
+    update_carer.update(carer_params)
+    render json: update_carer
+
+  end
+
+
   private
     def carer_params
       params.require(:carer).permit(:username, :password, :first_name, :last_name, :phone, :email, :picture)
