@@ -15,16 +15,17 @@ class EducatorsController < ApplicationController
     render json: educator.to_json(
       :except => [:created_at, :updated_at],
       :include => {
-        :educator_rooms => {
+        :sections => {
           :except => [:created_at, :updated_at],
           :include => {
             :room => {
-              :except => [:created_at, :updated_at],
-              :include => {
-                :educators => {
-                  :except => [:created_at, :updated_at]
-                }
-              }
+              :except => [:id, :created_at, :updated_at]
+            },
+            :educators => {
+              :except => [:created_at, :updated_at]
+            },
+            :students => {
+              :except => [:created_at, :updated_at]
             }
           }
         }
@@ -45,7 +46,7 @@ class EducatorsController < ApplicationController
     update_educator = Educator.find_by(id: params[:id])
     update_educator.update(educator_params)
     render json: update_educator
-    
+
   end
 
   private

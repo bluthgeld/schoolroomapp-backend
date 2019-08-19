@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_151621) do
+ActiveRecord::Schema.define(version: 2019_08_19_032022) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,11 +30,9 @@ ActiveRecord::Schema.define(version: 2019_08_12_151621) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "educator_rooms", force: :cascade do |t|
+  create_table "educator_sections", force: :cascade do |t|
     t.integer "educator_id"
-    t.integer "room_id"
-    t.string "hours"
-    t.string "school_year"
+    t.integer "section_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,6 +59,17 @@ ActiveRecord::Schema.define(version: 2019_08_12_151621) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sections", force: :cascade do |t|
+    t.string "name"
+    t.string "start_hour"
+    t.string "end_hour"
+    t.string "description"
+    t.string "academic_year"
+    t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "student_carers", force: :cascade do |t|
     t.integer "student_id"
     t.integer "carer_id"
@@ -69,11 +78,9 @@ ActiveRecord::Schema.define(version: 2019_08_12_151621) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "student_rooms", force: :cascade do |t|
+  create_table "student_sections", force: :cascade do |t|
     t.integer "student_id"
-    t.integer "room_id"
-    t.string "hours"
-    t.string "school_year"
+    t.integer "section_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

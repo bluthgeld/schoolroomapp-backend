@@ -9,8 +9,8 @@ Carer.destroy_all
 Educator.destroy_all
 Room.destroy_all
 StudentCarer.destroy_all
-StudentRoom.destroy_all
-EducatorRoom.destroy_all
+StudentSection.destroy_all
+EducatorSection.destroy_all
 
 carer1 = Carer.create(username: "superparent", password: "password1", first_name: "Robert", last_name: "Pancake", phone: "2405551212", email: "rob@thegreatepancake.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg")
 carer2 = Carer.create(username: "thegreatestparent", password: "password2", first_name: "Melissa", last_name: "Pancake", phone: "2405552222", email: "melissa@thegreatepancake.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg")
@@ -33,13 +33,17 @@ studentcarer3 = StudentCarer.find_or_create_by(student_id: student1.id, carer_id
 
 room1 = Room.find_or_create_by(room_number: "101", name: "Maple", room_type: 0)
 
-educatorroom1 = EducatorRoom.find_or_create_by(educator_id: educator1.id, room_id: room1.id, hours: "8 to 6", school_year: "2019")
-educatorroom2 = EducatorRoom.find_or_create_by(educator_id: educator2.id, room_id: room1.id, hours: "8 to 6" school_year: "2019")
+section = Section.find_or_create_by(name: "Montessori", start_hour: "09:00", end_hour: "15:30", description: "Mixed age Montessori Pre-K", academic_year: "2019", room_id: room1.id)
 
-studentroom1= StudentRoom.find_or_create_by(student_id: student1.id, room_id: room1.id, hours: "8 to 6", school_year: "2019")
-studentroom2= StudentRoom.find_or_create_by(student_id: student2.id, room_id: room1.id, hours: "8 to 6", school_year: "2019")
-studentroom3= StudentRoom.find_or_create_by(student_id: student3.id, room_id: room1.id, hours: "8 to 6", school_year: "2019")
-studentroom4= StudentRoom.find_or_create_by(student_id: student4.id, room_id: room1.id, hours: "8 to 6", school_year: "2019")
+
+
+educatorsection1 = EducatorSection.find_or_create_by(educator_id: educator1.id, section_id: section.id)
+educatorsection2 = EducatorSection.find_or_create_by(educator_id: educator2.id, section_id: section.id)
+
+studentsection1= StudentSection.find_or_create_by(student_id: student1.id, section_id: section.id)
+studentsection2= StudentSection.find_or_create_by(student_id: student2.id, section_id: section.id)
+studentsection3= StudentSection.find_or_create_by(student_id: student3.id, section_id: section.id)
+studentsection4= StudentSection.find_or_create_by(student_id: student4.id, section_id: section.id)
 
 
 announcement1 = Announcement.find_or_create_by(initiator_id: educator1.id, receiver_id: carer1.id, subject: "This is a Test", body: "this is a much longer body.  Later I will add room for attachements and other pieces of info.  Eventually, I will add a text editor so we can accept formatting")
