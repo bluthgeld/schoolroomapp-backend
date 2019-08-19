@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
   post '/login', to:  'auth#create'
   post '/edlogin', to:  'auth#edcreate'
+  get '/ann/:id', to: 'announcements#receiver'
 
 end

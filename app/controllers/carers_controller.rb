@@ -14,34 +14,26 @@ class CarersController < ApplicationController
 
     render json: carer.to_json(
       :except => [:created_at, :updated_at, :educator_type, :admin],
-        :include => {
-          :students => {
-            :except => [:created_at, :updated_at],
-            :include => {
-              :student_rooms => {
-                :except => [:id, :student_id, :created_at, :updated_at],
-                :include => {
-                  :room => {
-                    :except => [:created_at, :updated_at],
-                    :include => {
-                        :educators => {
-                          :only => [:first_name, :last_name, :picture, :educator_type]
-                        }
-                    }
-                  }
-                }
-              },
-              :student_carers => {
-                :only => [:fam],
-                :include => {
-                  :carer => {
-                    :only => [:id, :first_name, :last_name, :email, :phone, :picture]
-                  }
-                }
+      :include => {
+        :students => {
+          :except => [:created_at, :updated_at],
+          :include => {
+            :sections => {
+              :except => [:created_at, :updated_at],
+              :include => {
+                :room => {},
+                :educators => {}
+              }
+            },
+            :student_carers => {
+              :except => [:created_at, :updated_at],
+              :include => {
+                :carer => {}
               }
             }
           }
         }
+      }
     )
 
   end

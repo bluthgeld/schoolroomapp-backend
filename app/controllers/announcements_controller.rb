@@ -47,6 +47,40 @@ class AnnouncementsController < ApplicationController
 
   end
 
+
+  def receiver
+
+    user = User.find(params[:id])
+    render json: user.to_json(
+      :only => [:username],
+      :include => {
+        :receiver_relationships => {
+          :only => [:id, :initiator_id, :subject, :body, :created_at],
+          :include => {
+            :initiator => {
+              :only => [:first_name, :last_name, :picture, :educator_type]
+            },
+            :messages => {
+              :only => [:id]
+            }
+          }
+        },
+        :initiator_relationships => {
+          :only => [:id, :receiver_id, :subject, :body, :created_at],
+          :include => {
+            :receiver => {
+              :only => [:first_name, :last_name, :picture, :educator_type]
+            },
+            :messages => {
+              :only => [:id]
+            }
+          }
+        }
+      }
+    )
+
+  end
+
   private
     def announcement_params
       params.require(:announcement).permit(:initiator_id, :receiver_id, :subject, :body)
