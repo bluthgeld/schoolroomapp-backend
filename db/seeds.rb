@@ -12,9 +12,9 @@ StudentCarer.destroy_all
 StudentSection.destroy_all
 EducatorSection.destroy_all
 
-carer1 = Carer.create(username: "superparent", password: "password1", first_name: "Robert", last_name: "Pancake", phone: "2405551212", email: "rob@thegreatepancake.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg")
-carer2 = Carer.create(username: "thegreatestparent", password: "password2", first_name: "Melissa", last_name: "Pancake", phone: "2405552222", email: "melissa@thegreatepancake.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg")
-carer3 = Carer.create(username: "grandonut", password: "password4", first_name: "Grandonut", last_name: "Le Donut", phone: "3015554444", email: "thegranddame@ladonut.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg")
+carer1 = Carer.create(username: "superparent", user_type: "carer", password: "password1", first_name: "Robert", last_name: "Pancake", phone: "2405551212", email: "rob@thegreatepancake.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg")
+carer2 = Carer.create(username: "thegreatestparent", user_type: "carer", password: "password2", first_name: "Melissa", last_name: "Pancake", phone: "2405552222", email: "melissa@thegreatepancake.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg")
+carer3 = Carer.create(username: "grandonut", user_type: "carer", password: "password4", first_name: "Grandonut", last_name: "Le Donut", phone: "3015554444", email: "thegranddame@ladonut.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg")
 
 student1 = Student.find_or_create_by(student_number: "PA001", first_name: "Elynor", last_name: "Pancake", dob: "September 1, 2014", nickname: "Thunderboy", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg", start_date: "September 1, 2018")
 student2 = Student.find_or_create_by(student_number: "PA002", first_name: "Fiona", last_name: "Haircut", dob: "September 1, 2014", nickname: "Fighting Unicorn", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg", start_date: "September 1, 2018")
@@ -23,8 +23,8 @@ student3 = Student.find_or_create_by(student_number: "PA004", first_name: "Becke
 
 # https://robohash.org/superpancake.png?bgset=bg1&size=150x150
 
-educator1 = Educator.create(username: "msohno", password: "password1", first_name: "Operah", last_name: "Oh", phone: "2405551212", email: "mso@ohno.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg", educator_type: 0, admin: true)
-educator2 = Educator.create(username: "otto", password: "password2", first_name: "Otto", last_name: "Odd", phone: "2405551212", email: "otto@ottoisodd.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg", educator_type: 1, admin: true)
+educator1 = Educator.create(username: "msohno", password: "password1", user_type: "educator", first_name: "Operah", last_name: "Oh", phone: "2405551212", email: "mso@ohno.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg", educator_type: 0, admin: true)
+educator2 = Educator.create(username: "otto", password: "password2", user_type: "educator", first_name: "Otto", last_name: "Odd", phone: "2405551212", email: "otto@ottoisodd.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg", educator_type: 1, admin: true)
 
 
 studentcarer1 = StudentCarer.find_or_create_by(student_id: student1.id, carer_id: carer1.id, fam: 0 )
