@@ -1,7 +1,11 @@
 class EducatorsController < ApplicationController
 
   def index
-    educator = Educator.all
+
+    token = request.headers["Authentication"].split(" ")[1]
+    payload = decode(token)
+
+    educator = Educator.find(payload["user_id"])
 
     render json: educator.to_json(
       :except => [:created_at, :updated_at, :educator_type, :admin]

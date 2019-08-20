@@ -1,16 +1,28 @@
 class CarersController < ApplicationController
 
   def index
-    carers = Carer.all
+    # carers = Carer.all
+    #
+    # render json: carers.to_json(
+    #   :except => [:created_at, :updated_at, :educator_type, :admin]
+    # )
 
-    render json: carers.to_json(
-      :except => [:created_at, :updated_at, :educator_type, :admin]
+    token = request.headers["Authentication"].split(" ")[1]
+    payload = decode(token)
+
+    carer = Carer.find(payload["user_id"])
+
+    render json: carer.to_json(
+        :except => [:created_at, :updated_at, :educator_type, :admin]
     )
+
 
   end
 
   def show
-    carer = Carer.find_by(id: params[:id])
+
+    carer= Carer.find_by(id: params[:id])
+
 
     render json: carer.to_json(
       :except => [:created_at, :updated_at, :educator_type, :admin],

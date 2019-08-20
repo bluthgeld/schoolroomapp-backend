@@ -3,7 +3,7 @@ class StudentCarer < ApplicationRecord
   belongs_to :student
   belongs_to :carer
 
-  enum fam: [:parnt, :nanny, :elder, :sibling]
+  enum fam: [:Parent, :Nanny, :EsteemedElder, :Sibling]
 
   after_initialize do
     if self.new_record?

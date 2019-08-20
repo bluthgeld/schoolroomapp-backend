@@ -21,6 +21,7 @@ student2 = Student.find_or_create_by(student_number: "PA002", first_name: "Fiona
 student4 = Student.find_or_create_by(student_number: "PA003", first_name: "Jesse", last_name: "Sygurl", dob: "September 1, 2014", nickname: "Frogster", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg", start_date: "September 1, 2018")
 student3 = Student.find_or_create_by(student_number: "PA004", first_name: "Beckett", last_name: "Thomas", dob: "September 1, 2014", nickname: "SmashSmashSmash", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg", start_date: "September 1, 2018")
 
+# https://robohash.org/superpancake.png?bgset=bg1&size=150x150
 
 educator1 = Educator.create(username: "msohno", password: "password1", first_name: "Operah", last_name: "Oh", phone: "2405551212", email: "mso@ohno.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg", educator_type: 0, admin: true)
 educator2 = Educator.create(username: "otto", password: "password2", first_name: "Otto", last_name: "Odd", phone: "2405551212", email: "otto@ottoisodd.com", picture: "https://images-na.ssl-images-amazon.com/images/I/51eHSs7gOTL.jpg", educator_type: 1, admin: true)
