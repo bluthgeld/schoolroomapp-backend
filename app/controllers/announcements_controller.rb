@@ -36,14 +36,24 @@ class AnnouncementsController < ApplicationController
 
   def create
 
-    new_announcement = Announcement.create(announcement_params)
-    render json: new_announcement.to_json(
-      :include => {
-        :initiator => {
-          :only => [:id, :username, :first_name, :last_name, :picture]
-        }
-      }
-    )
+    kid = Student.find(params[:student_id])
+    parents = kid.carers
+
+
+    parents.each do |parent|
+
+      new_announcement = Announcement.create(initiator_id: params[:initiator_id], receiver_id: parent.id, subject: params[:subject], body: params[:body])
+      RobMailer.announcement(parent.email, params[:subject], params[:body]).deliver_now
+
+      message = "A New Message From School: #{params[:body]}"
+      TwilioTextMessenger.new(message).call
+
+    end
+
+
+    render json: {
+      message: "messages sent",
+    }
 
   end
 

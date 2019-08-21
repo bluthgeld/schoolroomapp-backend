@@ -9,7 +9,7 @@ class TwilioTextMessenger
     client = Twilio::REST::Client.new
     client.messages.create({
       from: Rails.application.credentials.twilio[:twilio_phone_number],
-      to: 'YOUR PERSONAL PHONE NUMBER GOES HERE',
+      to: Rails.application.credentials.twilio[:my_phone_number],
       body: message
     })
   end

@@ -37,6 +37,24 @@ class EducatorsController < ApplicationController
     )
   end
 
+  def ed_students
+    educator = Educator.find_by(id: params[:id])
+
+    render json: educator.to_json(
+      :only => [:id, :first_name, :last_name],
+      :include => {
+        :sections => {
+          :only => [:id, :name],
+          :include => {
+            :students => {
+              :only => [:id, :first_name, :last_name]
+            }
+          }
+        }
+      }
+    )
+  end
+
 
   def create
 
