@@ -18,7 +18,7 @@ class SectionsController < ApplicationController
         :educators => {},
         :students => {
           :include => {
-            :carers => {}
+            :carers =>  {}
           }
         }
       }
