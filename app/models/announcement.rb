@@ -1,5 +1,5 @@
 class Announcement < ApplicationRecord
-    validates :student_id, presence: true
+
     validates :subject, presence: true
     validates :body, presence: true
 
