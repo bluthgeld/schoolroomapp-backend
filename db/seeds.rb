@@ -58,7 +58,7 @@ educatorsection1 = EducatorSection.find_or_create_by(educator_id: educator1.id, 
 educatorsection2 = EducatorSection.find_or_create_by(educator_id: educator2.id, section_id: section.id)
 educatorsection3 = EducatorSection.find_or_create_by(educator_id: educator3.id, section_id: section1.id)
 educatorsection4 = EducatorSection.find_or_create_by(educator_id: educator4.id, section_id: section1.id)
-educatorsection4 = EducatorSection.find_or_create_by(educator_id: educator2.id, section_id: section1.id)
+
 
 studentsection1= StudentSection.find_or_create_by(student_id: student1.id, section_id: section.id)
 studentsection2= StudentSection.find_or_create_by(student_id: student2.id, section_id: section.id)
@@ -77,9 +77,8 @@ studentsection6= StudentSection.find_or_create_by(student_id: student10.id, sect
 studentsection7= StudentSection.find_or_create_by(student_id: student11.id, section_id: section1.id)
 studentsection8= StudentSection.find_or_create_by(student_id: student11.id, section_id: section.id)
 
-  #
-  # announcement1 = Announcement.find_or_create_by(initiator_id: educator1.id, receiver_id: carer1.id, subject: "This is a Test", body: "this is a much longer body.  Later I will add room for attachements and other pieces of info.  Eventually, I will add a text editor so we can accept formatting")
-  #
-  # message1 = Message.find_or_create_by(announcement_id: announcement1.id, sender_id: educator1.id, body: "Hello, Welcome to the School")
-  # message2 = Message.find_or_create_by(announcement_id: announcement1.id, sender_id: carer1.id, body: "Thank you!")
-  # message3 = Message.find_or_create_by(announcement_id: announcement1.id, sender_id: educator1.id, body: "You are Most Welcome!")
+announcement1 = Announcement.find_or_create_by(initiator_id: educator1.id, receiver_id: carer1.id, subject: "This is a Test", body: "this is a much longer body.  Later I will add room for attachements and other pieces of info.  Eventually, I will add a text editor so we can accept formatting")
+
+message1 = Message.find_or_create_by(announcement_id: announcement1.id, sender_id: educator1.id, body: "Hello, Welcome to the School")
+message2 = Message.find_or_create_by(announcement_id: announcement1.id, sender_id: carer1.id, body: "Thank you!")
+message3 = Message.find_or_create_by(announcement_id: announcement1.id, sender_id: educator1.id, body: "You are Most Welcome!")

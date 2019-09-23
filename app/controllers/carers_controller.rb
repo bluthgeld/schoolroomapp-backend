@@ -53,6 +53,10 @@ class CarersController < ApplicationController
   def create
 
     new_carer = Carer.create!(carer_params)
+    message = "Thank you, #{new_carer.first_name}. You have registered for Schoolroom!"
+    phone = new_carer.phone
+    TwilioTextMessenger.new(message,phone).call
+
     render json: new_carer
 
   end
